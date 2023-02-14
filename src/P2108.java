@@ -23,6 +23,8 @@ public class P2108 {
                 min = value;
         }
 
+        br.close();
+
         int count = 0;	// 중앙값 빈도 누적 수
         int mode_max = 0; 	// 최빈값의 최댓값
 
