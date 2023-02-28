@@ -53,7 +53,6 @@ public class P24444 {
         Queue<Integer> integerQueue = new LinkedList<Integer>();
         visited[R] = true;
         integerQueue.add(R);
-
         while (integerQueue.size() != 0) {
             R = integerQueue.poll();
             result[R] = ++cnt;
