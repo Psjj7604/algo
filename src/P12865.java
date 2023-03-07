@@ -15,11 +15,11 @@ public class P12865 {
 
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
-        int N = Integer.parseInt(st.nextToken());
-        int K = Integer.parseInt(st.nextToken());
+        int N = Integer.parseInt(st.nextToken()); // 물품 수
+        int K = Integer.parseInt(st.nextToken()); // 담을 수 있는 무게
 
-        W = new int[N];
-        V = new int[N];
+        W = new int[N]; //물품의 가치
+        V = new int[N]; //물품의 무게
 
         dp = new Integer[N][K + 1];
 
