@@ -1,6 +1,7 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.StringTokenizer;
@@ -11,32 +12,32 @@ public class P8979 {
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
-        int[] arr = new int[N+1];
-        int[] rank = new int[N + 1];
+        int[][] arr = new int[N + 1][3];
+        int rank = 1;
 
-
-        for (int i = 0; i < N; i++) {
-            st = new StringTokenizer(br.readLine(), " ");
-            int countryNum = Integer.parseInt(st.nextToken());
-            String sum = st.nextToken()+st.nextToken()+st.nextToken();
-            int cnt = Integer.parseInt(sum);
-
-            arr[countryNum] = cnt;
-        }
 
         for (int i = 1; i <= N; i++) {
-            rank[i] =1;
-            for (int j = 1; j <= N; j++) {
-                if(i==j)
-                    continue;
+            st = new StringTokenizer(br.readLine(), " ");
+            int countryNum = Integer.parseInt(st.nextToken());
+            arr[countryNum][0] = Integer.parseInt(st.nextToken());
+            arr[countryNum][1] = Integer.parseInt(st.nextToken());
+            arr[countryNum][2] = Integer.parseInt(st.nextToken());
+        }
 
-                if(arr[i]<arr[j]){
-                    rank[i]++;
-                }
+        for(int i=1; i<=N; i++) {
+            if(arr[i][0] > arr[M][0]) { //비교 대상이 금메달이 더많으면 랭킹 +1
+                rank++;
+            }
+            else if(arr[i][0] == arr[M][0] && arr[i][1] > arr[M][1]) { // 금 갯수는 같고 은이 더 작을 때
+                rank++;
+            }
+            else if(arr[i][0] == arr[M][0] && arr[i][1] == arr[M][1] && arr[i][2] > arr[M][2]) {
+                rank++;
             }
         }
 
-        System.out.println(rank[M]);
+
+        System.out.println(rank);
 
     }
 }
